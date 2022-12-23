@@ -2,7 +2,7 @@
 install_aws_cli()
 {
     sudo apt-get update
-    sudo apt-get -y install awscli 
+    sudo apt-get --assume-yes install awscli 
     if [ $? -ne 0 ]; then
        echo "error while installing awscli"
     fi
