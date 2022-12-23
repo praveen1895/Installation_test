@@ -6,7 +6,6 @@ pipeline {
     stage('Deploy') {
       steps {
          script{
-             echo "hello"
          // sh "installation.sh"     
          if(CLUSTER == 'PROMETHEUS') {
           
