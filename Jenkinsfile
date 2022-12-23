@@ -6,8 +6,8 @@ pipeline {
     stage('Deploy') {
       steps {
          script{
+             echo "hello"
          // sh "installation.sh"     
-         sh "curl https://github.com/shivaprakashbc/Installation_test/blob/main/installation.sh"
          if(CLUSTER == 'PROMETHEUS') {
           
             VAULT_NAME = '$PROMETHEUS_Vault_Name'
