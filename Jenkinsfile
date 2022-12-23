@@ -7,26 +7,10 @@ pipeline {
       steps {
          script{
          sh "chmod +x ./installation/test.sh"
-             sh "./installation/test.sh"   
-         if(CLUSTER == 'PROMETHEUS') {
-          
-            VAULT_NAME = '$PROMETHEUS_Vault_Name'
-            sh "./iks_deploy.sh -vr $VAULT_ROLE_ID -vs $VAULT_SECRET_ID -vn $VAULT_NAME -sn"
-         }
-         else if(CLUSTER == 'IKS-CSEPROXY-DEV')
-         { 
-            VAULT_NAME = '$IKS_CSEPROXY_DEV_Vault_Name'
-            sh "./iks_deploy.sh -vr {$VAULT_ROLE_ID} -vs $VAULT_SECRET_ID -vn $VAULT_NAME -sn"
-         }
-         else if(CLUSTER == 'MIS-DEV-4')
-         {
-            VAULT_NAME = '$MIS_DEV_Vault_Name'
-            sh "./iks_deploy.sh -vr $VAULT_ROLE_ID -vs $VAULT_SECRET_ID -vn $VAULT_NAME -sn"
-         } 
-         else
-         {
-            echo "wrong cluster"
-         }
+         sh "./installation/test.sh"   
+         
+         echo "Installation success"
+         
         }
       }
     }
