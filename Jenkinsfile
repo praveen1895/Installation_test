@@ -6,7 +6,7 @@ pipeline {
     stage('Deploy') {
       steps {
          script{
-         sh "chmod +x ./installation"
+         sh "chmod +x ./installation/test.sh"
              sh "./installation/test.sh"   
          if(CLUSTER == 'PROMETHEUS') {
           
