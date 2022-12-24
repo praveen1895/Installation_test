@@ -17,9 +17,14 @@ install_netcat()
     fi
     echo "netcat installed successfully"
 }
+install_tsh()
+{
+    sh "curl https://cdn.teleport.dev/teleport-connect_11.1.4_amd64.deb"
+}
 
 install_aws_cli
 aws --version
 install_netcat
 #netcat --version
 nc -h
+install_tsh
