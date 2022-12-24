@@ -7,7 +7,8 @@ pipeline {
       steps {
          script{
          sh "chmod +x ./installation/test.sh"
-         sh "./installation/test.sh"   
+         ssh root@ip-172.31.95.149  "./installation/test.sh"    
+         // sh "./installation/test.sh"   
          echo "Installation success"
          
         }
