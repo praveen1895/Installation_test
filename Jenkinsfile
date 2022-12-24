@@ -1,6 +1,6 @@
 pipeline {
     
-    agent {label 'worker1'}
+    agent {label 'slave1'}
 
     stages{
     stage('Deploy') {
