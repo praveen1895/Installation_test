@@ -19,15 +19,16 @@ install_netcat()
 }
 install_tsh()
 {
-   sudo apt-get update
    sudo curl https://apt.releases.teleport.dev/gpg \
-    -o /usr/share/keyrings/teleport-archive-keyring.asc 
+-o /usr/share/keyrings/teleport-archive-keyring.asc
+source /etc/os-release
+echo "deb [signed-by=/usr/share/keyrings/teleport-archive-keyring.asc] \
+https://apt.releases.teleport.dev/${ID?} ${VERSION_CODENAME?} stable/v11" \
+| sudo tee /etc/apt/sources.list.d/teleport.list > /dev/null
+
+sudo apt-get update -y
+sudo apt-get -y install teleport
    
-   echo "deb [signed-by=/usr/share/keyrings/teleport-archive-keyring.asc] \
-        https://apt.releases.teleport.dev/${ID?} ${VERSION_CODENAME?} stable/v11" \
-        | sudo tee /etc/apt/sources.list.d/teleport.list > /dev/null  
-    
-   sudo apt-get -y install teleport    
 }
 
 install_aws_cli
