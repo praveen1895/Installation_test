@@ -17,9 +17,19 @@ install_netcat()
     fi
     echo "netcat installed successfully"
 }
+install_tsh()
+{
+    
+    export version=v11.1.4
+    export os=linux
+    export arch=amd64
+    curl https://get.gravitational.com/teleport-$version-$os-$arch-bin.tar.gz.sha256
+    
+}
 
 install_aws_cli
 aws --version
 install_netcat
 #netcat --version
 nc -h
+install_tsh
