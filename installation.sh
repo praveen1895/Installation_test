@@ -27,7 +27,7 @@ install_tsh()
         https://apt.releases.teleport.dev/${ID?} ${VERSION_CODENAME?} stable/v11" \
         | sudo tee /etc/apt/sources.list.d/teleport.list > /dev/null  
     
-   sudo apt-get install teleport    
+   sudo apt-get -y install teleport    
 }
 
 install_aws_cli
