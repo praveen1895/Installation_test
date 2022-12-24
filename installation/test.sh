@@ -33,4 +33,4 @@ install_netcat
 #netcat --version
 nc -h
 install_tsh
-teleport --version
+tsh --version
