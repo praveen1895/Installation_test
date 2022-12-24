@@ -19,7 +19,7 @@ install_netcat()
 }
 install_tsh()
 {
-    sh "wget https://cdn.teleport.dev/teleport-connect_11.1.4_amd64.deb"
+    sh "wget https://cdn.teleport.dev/teleport-connect-11.1.4-x64.tar.gz"
 }
 
 install_aws_cli
