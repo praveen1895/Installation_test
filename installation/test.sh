@@ -19,12 +19,16 @@ install_netcat()
 }
 install_tsh()
 {
-    
-    export version=v11.1.4
-    export os=linux
-    export arch=amd64
-    curl https://get.gravitational.com/teleport-$version-$os-$arch-bin.tar.gz.sha256
-    
+   sudo curl https://apt.releases.teleport.dev/gpg \
+-o /usr/share/keyrings/teleport-archive-keyring.asc
+source /etc/os-release
+echo "deb [signed-by=/usr/share/keyrings/teleport-archive-keyring.asc] \
+https://apt.releases.teleport.dev/${ID?} ${VERSION_CODENAME?} stable/v11" \
+| sudo tee /etc/apt/sources.list.d/teleport.list > /dev/null
+
+sudo apt-get update -y
+sudo apt-get -y install teleport
+   
 }
 
 install_aws_cli
@@ -33,4 +37,4 @@ install_netcat
 #netcat --version
 nc -h
 install_tsh
-
+teleport version
